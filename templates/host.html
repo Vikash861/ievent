@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{%block title%}
+host events
+{%endblock title%}
+
+{%block body%}
+<form class="container mt-3" method="POST" action="/host" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="event" class="form-label">Event Name</label>
+        <input type="text" class="form-control" name="name"id="event" required>
+    </div>
+    <div class="mb-3">
+        <label for="aboutEvent" class="form-label">About Event</label>
+        <textarea class="form-control" name="about" rows="4" id="aboutEvent" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="time" class="form-label">Time</label>
+        <input type="datetime-local" name="time" class="form-control" id="time" required>
+    </div>
+    <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input type="location" name="location" class="form-control" id="location" required>
+    </div>
+    <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input type="file" name="image" class="form-control" id="image" accept="image/*" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{%endblock body%}
